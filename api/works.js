@@ -1,31 +1,53 @@
 export default async function handler(req, res) {
-  const token = process.env.AIRTABLE_TOKEN;
-  const baseId = process.env.AIRTABLE_BASE_ID;
-  const tableName = process.env.AIRTABLE_TABLE_NAME || "Table 1";
+  try {
+    const token = process.env.AIRTABLE_TOKEN;
+    const baseId = process.env.AIRTABLE_BASE_ID;
+    const tableName = process.env.AIRTABLE_TABLE_NAME || "Table 1";
 
-  const url =
-    `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}` +
-    `?filterByFormula={Featured}=TRUE()`;
+    if (!token || !baseId) {
+      return res.status(500).json({
+        error: "Missing AIRTABLE_TOKEN or AIRTABLE_BASE_ID",
+      });
+    }
 
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+    const url =
+      `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}` +
+      `?filterByFormula={Featured}=TRUE()`;
 
-  const data = await response.json();
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-  const works = data.records.map((record) => {
-    const f = record.fields;
+    const data = await response.json();
 
-    return {
-      title: f.Title || "",
-      artist: f.Artist || "",
-      role: f.Role || "",
-      link: f.Link || "#",
-      cover: f.Cover?.[0]?.url || "",
-    };
-  });
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: "Airtable API error",
+        detail: data,
+      });
+    }
 
-  res.status(200).json(works);
+    const records = data.records || [];
+
+    const works = records.map((record) => {
+      const f = record.fields || {};
+
+      return {
+        title: f.Title || "",
+        artist: f.Artist || "",
+        role: f.Role || "",
+        link: f.Link || "#",
+        cover: f.Cover && f.Cover[0] ? f.Cover[0].url : "",
+      };
+    });
+
+    return res.status(200).json(works);
+  } catch (error) {
+    return res.status(500).json({
+      error: "Server crashed",
+      message: error.message,
+    });
+  }
 }
