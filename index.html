@@ -22,7 +22,15 @@
             <article class="work-card">
               <a href="${work.link}" target="_blank">
                 <img class="cover-img" src="${work.cover}" alt="${work.title}">
-                <p class="role">${work.role}</p>
+               <div class="role-row">
+  <p class="role">${work.role}</p>
+
+  ${
+    work.note
+      ? `<span class="role-note">${work.note}</span>`
+      : ""
+  }
+</div>
                 <h3>${work.title}</h3>
                 <p>${work.artist}</p>
               </a>

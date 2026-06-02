@@ -325,4 +325,16 @@ footer {
     transform: translateY(0px);
   }
 }
+.role-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.role-note {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
 }

@@ -38,9 +38,10 @@ export default async function handler(req, res) {
   artist: f.Artist || "",
   role: Array.isArray(f.Role)
     ? f.Role.join(" • ")
-    : String(f.Role || "").replaceAll(",", " • "),
+    : String(f.Role || ""),
+  note: f.Note || "",
   link: f.Link || "#",
-  cover: f.Cover && f.Cover[0] ? f.Cover[0].url : "",
+  cover: f.Cover?.[0]?.url || "",
 };
     });
 
