@@ -124,6 +124,15 @@ a {
   color: #fff;
 }
 
+.cover-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 22px;
+  margin-bottom: 18px;
+  display: block;
+}
+
 .section {
   padding: 90px 7%;
 }
@@ -282,4 +291,38 @@ footer {
   .about p {
     font-size: 21px;
   }
+  .avatar-link {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.avatar-link:hover {
+  transform: scale(1.05);
+}
+
+.avatar-tip {
+  margin-top: 14px;
+  text-align: center;
+
+  font-size: 20px;
+
+  color: rgb(65, 170, 245);
+
+  animation: floatText 1s infinite;
+
+  font-family: "Quicksand", sans-serif;
+}
+@keyframes floatText {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
 }

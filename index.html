@@ -5,11 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sako8 | Music Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-</head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<script>
+  fetch("/api/works")
+    .then((res) => res.json())
+    .then((works) => {
+      const grid = document.getElementById("worksGrid");
+
+      grid.innerHTML = works
+        .map(
+          (work) => `
+            <article class="work-card">
+              <a href="${work.link}" target="_blank">
+                <img class="cover-img" src="${work.cover}" alt="${work.title}">
+                <p class="role">${work.role}</p>
+                <h3>${work.title}</h3>
+                <p>${work.artist}</p>
+              </a>
+            </article>
+          `
+        )
+        .join("");
+    });
+</script>
 <body>
   <header class="nav">
     <a href="#" class="logo">Sako8</a>
+
     <nav>
       <a href="#works">Works</a>
       <a href="#about">About</a>
@@ -19,36 +45,40 @@
 
   <main>
     <section class="hero">
+      <div class="hero-content">
+        <div class="hero-left">
+          <p class="small-title">Producer / Mixing Engineer / Artist</p>
 
-  <div class="hero-content">
+          <h1>Sako8</h1>
 
-    <div class="hero-left">
-      <p class="small-title">Producer / Mixing Engineer / Artist</p>
+          <p class="hero-text">
+            Creating songs, mixes and emotional soundscapes for late nights,
+            cities, memories and stories.
+          </p>
 
-      <h1>Sako8</h1>
+          <div class="hero-links">
+            <a href="#works">View Works</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
 
-      <p class="hero-text">
-        Creating songs, mixes and emotional soundscapes for late nights,
-        cities, memories and stories.
-      </p>
+        <div class="hero-right">
+          <a
+            href="https://163cn.tv/8fmFjMU"
+            target="_blank"
+            class="avatar-link"
+          >
+            <video autoplay muted loop playsinline>
+              <source src="video/sako8.mp4" type="video/mp4" />
+            </video>
+          </a>
 
-      <div class="hero-links">
-        <a href="#works">View Works</a>
-        <a href="#contact">Contact</a>
+          <p class="avatar-tip">
+            ♫ Click me ♫ 
+          </p>
+        </div>
       </div>
-    </div>
-
-    <div class="hero-right">
-
-      <video autoplay muted loop playsinline>
-        <source src="video/sako8.mp4" type="video/mp4">
-      </video>
-
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
     <section id="works" class="section">
       <div class="section-head">
@@ -56,57 +86,17 @@
         <p>Music production, mixing, recording and arrangement.</p>
       </div>
 
-      <div class="works-grid">
-        <article class="work-card">
-          <div class="cover">Cover</div>
-          <p class="role">Mixing / Production</p>
-          <h3>被你骗 和你吻</h3>
-          <p>三火 flame / 沧桑 Cang333 / 白石桥南</p>
-        </article>
-
-        <article class="work-card">
-          <div class="cover">Cover</div>
-          <p class="role">Mixing</p>
-          <h3>整个冬天都是你</h3>
-          <p>陈奕楠 / knowme / 艾纳德</p>
-        </article>
-
-        <article class="work-card">
-          <div class="cover">Cover</div>
-          <p class="role">Arrangement / Mix</p>
-          <h3>爱占线</h3>
-          <p>xxxmiracle / 豪一鸽</p>
-        </article>
-
-        <article class="work-card">
-          <div class="cover">Cover</div>
-          <p class="role">Production</p>
-          <h3>She will hurt me</h3>
-          <p>三火 flame / 天神</p>
-        </article>
-
-        <article class="work-card">
-          <div class="cover">Cover</div>
-          <p class="role">Mixing</p>
-          <h3>白桃花</h3>
-          <p>三火 flame / 白石桥南</p>
-        </article>
-
-        <article class="work-card">
-          <div class="cover">Cover</div>
-          <p class="role">Recording / Mix</p>
-          <h3>无忧草 pt.2</h3>
-          <p>三火 flame</p>
-        </article>
-      </div>
+      <div class="works-grid" id="worksGrid"></div>
     </section>
 
     <section id="about" class="section about">
       <h2>About</h2>
+
       <p>
         Sako8 is a music creator working across singing, songwriting,
         composing, arrangement, production, recording and mixing.
       </p>
+
       <p>
         His works focus on emotional melodies, clean vocal texture and
         atmospheric production for pop, R&B and independent music.
@@ -119,8 +109,7 @@
 
       <div class="contact-links">
         <a href="mailto:your@email.com">your@email.com</a>
-        <a href="#">NetEase Cloud Music</a>
-        <a href="#">Instagram</a>
+        <a href="这里放Instagram链接" target="_blank">Instagram</a>
       </div>
     </section>
   </main>
