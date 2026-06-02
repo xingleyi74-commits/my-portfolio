@@ -94,7 +94,7 @@ a {
   margin: 0;
   font-size: clamp(76px, 14vw, 180px);
   line-height: 0.9;
-  letter-spacing: -8px;
+  letter-spacing: -4px;
   font-weight: 400;
 }
 
