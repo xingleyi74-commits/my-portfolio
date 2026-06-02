@@ -24,6 +24,11 @@
                 <img class="cover-img" src="${work.cover}" alt="${work.title}">
                <div class="role-row">
   <p class="role">${work.role}</p>
+   ${work.note ? `<p class="work-note">${work.note}</p>` : ""}
+
+    <h3>${work.title}</h3>
+
+    <p>${work.artist}</p>
 
   ${
     work.note
