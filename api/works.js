@@ -34,14 +34,14 @@ export default async function handler(req, res) {
       const f = record.fields || {};
 
       return {
-        title: f.Title || "",
-        artist: f.Artist || "",
-        role: Array.isArray(f.Role)
-              ? f.Role.join(" • ")
-              : (f.Role || ""),
-        link: f.Link || "#",
-        cover: f.Cover && f.Cover[0] ? f.Cover[0].url : "",
-      };
+  title: f.Title || "",
+  artist: f.Artist || "",
+  role: Array.isArray(f.Role)
+    ? f.Role.join(" • ")
+    : String(f.Role || "").replaceAll(",", " • "),
+  link: f.Link || "#",
+  cover: f.Cover && f.Cover[0] ? f.Cover[0].url : "",
+};
     });
 
     return res.status(200).json(works);
