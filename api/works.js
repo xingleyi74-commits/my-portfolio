@@ -40,7 +40,7 @@ export default async function handler(req, res) {
   role: Array.isArray(f.Role)
     ? f.Role.join(" • ")
     : String(f.Role || ""),
-  note: f.Note || "",
+  note: "测试123",
   link: f.Link || "#",
   cover: f.Cover?.[0]?.url || "",
 };
