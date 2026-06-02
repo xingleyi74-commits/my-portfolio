@@ -32,6 +32,7 @@ export default async function handler(req, res) {
 
     const works = records.map((record) => {
       const f = record.fields || {};
+      console.log(f);
 
       return {
   title: f.Title || "",
