@@ -21,23 +21,25 @@
           (work) => `
             <article class="work-card">
               <a href="${work.link}" target="_blank">
-                <img class="cover-img" src="${work.cover}" alt="${work.title}">
-               <div class="role-row">
-  <p class="role">${work.role}</p>
-   ${work.note ? `<p class="work-note">${work.note}</p>` : ""}
 
-    <h3>${work.title}</h3>
+                <img
+                  class="cover-img"
+                  src="${work.cover}"
+                  alt="${work.title}"
+                >
 
-    <p>${work.artist}</p>
+                <p class="role">${work.role}</p>
 
-  ${
-    work.note
-      ? `<span class="role-note">${work.note}</span>`
-      : ""
-  }
-</div>
+                ${
+                  work.note
+                    ? `<p class="work-note">${work.note}</p>`
+                    : ""
+                }
+
                 <h3>${work.title}</h3>
+
                 <p>${work.artist}</p>
+
               </a>
             </article>
           `
