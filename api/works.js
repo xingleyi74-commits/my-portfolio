@@ -11,8 +11,7 @@ export default async function handler(req, res) {
     }
 
     const url =
-      `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}` +
-      `?filterByFormula={Featured}=TRUE()`;
+  `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
 
     const response = await fetch(url, {
       headers: {
