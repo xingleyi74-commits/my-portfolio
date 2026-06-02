@@ -95,7 +95,7 @@ a {
   font-size: clamp(76px, 14vw, 180px);
   line-height: 0.9;
   letter-spacing: -8px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .hero-text {
