@@ -36,7 +36,9 @@ export default async function handler(req, res) {
       return {
         title: f.Title || "",
         artist: f.Artist || "",
-        role: f.Role || "",
+        role: Array.isArray(f.Role)
+              ? f.Role.join(" • ")
+              : (f.Role || ""),
         link: f.Link || "#",
         cover: f.Cover && f.Cover[0] ? f.Cover[0].url : "",
       };
