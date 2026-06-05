@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -453,5 +454,10 @@ footer {
 
   .about p {
     font-size: 20px;
+  }
+
+  /*html*/
+  html {
+    scroll-padding-top: 150px
   }
 }
