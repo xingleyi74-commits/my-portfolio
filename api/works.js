@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     }
 
     const url =
-  `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
+  `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?view=Grid%20view`;
 
     const response = await fetch(url, {
       headers: {
