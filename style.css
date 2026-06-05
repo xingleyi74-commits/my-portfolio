@@ -54,7 +54,7 @@ a {
 
 .hero {
   min-height: 55vh;
-  padding: 120px 7% 90px;
+  padding: 120px 7% 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
