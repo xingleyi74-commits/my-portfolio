@@ -322,39 +322,106 @@ footer {
 /* ===== Mobile ===== */
 
 @media (max-width: 850px) {
+
+  /* 导航栏 */
+
   .nav {
-    padding: 22px 6%;
+    padding: 18px 5%;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .nav nav {
-    gap: 16px;
+    width: 100%;
+    justify-content: center;
+    gap: 24px;
   }
 
+  /* 首页 */
+
   .hero {
-    padding: 90px 6% 70px;
+    padding: 60px 5% 60px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  /* 头像放最上面 */
+
+  .hero-right {
+    order: -1;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .small-title {
+    text-align: center;
+    margin-bottom: 16px;
   }
 
   .hero h1 {
-    letter-spacing: -4px;
+    font-size: 72px;
+    line-height: 1;
+    letter-spacing: -2px;
   }
 
   .hero-text {
-    font-size: 19px;
+    max-width: 320px;
+    font-size: 18px;
+    margin: 20px auto 0;
   }
 
+  .hero-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* click me */
+
+  .avatar-tip {
+    font-size: 18px;
+  }
+
+  /* 作品 */
+
   .section {
-    padding: 70px 6%;
+    padding: 60px 5%;
   }
 
   .section-head {
     display: block;
   }
 
+  .section-head p {
+    margin-top: 12px;
+  }
+
   .works-grid {
     grid-template-columns: 1fr;
   }
 
+  .work-card {
+    padding: 14px;
+  }
+
+  .work-card h3 {
+    font-size: 22px;
+  }
+
+  /* about */
+
   .about p {
-    font-size: 21px;
+    font-size: 20px;
   }
 }
