@@ -54,7 +54,7 @@ a {
 
 .hero {
   min-height: 55vh;
-  padding: 120px 7% 40px;
+  padding: 90px 7% 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,7 +135,7 @@ a {
 }
 
 .section {
-  padding: 30px 5%;
+  padding: 60px 7%;
 }
 
 #works {
