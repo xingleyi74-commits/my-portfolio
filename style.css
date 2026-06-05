@@ -138,6 +138,10 @@ a {
   padding: 90px 7%;
 }
 
+#works {
+  scroll-margin-top: 120px;
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;
